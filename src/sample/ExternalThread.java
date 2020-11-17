@@ -1,38 +1,33 @@
 package sample;
 
-import javafx.application.Platform;
 import javafx.scene.paint.Color;
 
-import java.io.IOException;
+public class ExternalThread extends Thread{
+    App app;
 
-public class ExternalThread extends Thread {
+    public static void main(String[] args) {
+        App app = new App();
+        app.s(args);
 
-    Main main;
+    }
 
-    public ExternalThread(Main main) {
-        this.main = main;
+
+    public ExternalThread(App app) {
+        this.app = app;
     }
 
     public void run(){
 
-        try {
-            sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        main.setFillColor(Color.CHOCOLATE);
+
+        app.setFillColor(Color.CHOCOLATE);
 
         for (int i = 256; i < 512 ; i++){
-            main.clearImage();
-            main.background(Color.CHOCOLATE);
-            main.setFillColor(Color.BLUE);
-            main.createRectangle(i,i,30,30);
+            app.clearImage();
+            app.background(Color.CHOCOLATE);
+            app.setFillColor(Color.BLUE);
+            app.createRectangle(i,i,30,30);
 
-            try {
-                sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
         }
 
 

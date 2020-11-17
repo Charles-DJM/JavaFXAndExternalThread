@@ -8,7 +8,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class App extends Application {
     Canvas canvas;
     GraphicsContext gc;
     Scene theScene;
@@ -16,8 +16,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        ExternalThread externalThread = new ExternalThread(this);
-        externalThread.start();
+
+
         /*
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Hello World");
@@ -36,6 +36,7 @@ public class Main extends Application {
     }
 
 
+    public void s(String[] args){ launch(args); }
     public static void main(String[] args) {
         launch(args);
     }
